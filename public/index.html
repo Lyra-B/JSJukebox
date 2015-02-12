@@ -13,12 +13,13 @@
 
     <input type="text" id="search" onchange="doSearch()" />
 
+
     <div id="catalog">
     </div>
 
     <script>
       SC.initialize({
-        client_id: 'YOUR KEY HERE'
+        client_id: '4f0f49d2e8de7886ae21480b0b2a9487'
       });
 
       function doSearch() {
@@ -31,6 +32,10 @@
         SC.get('/tracks', { q: searchTerm, license: 'cc-by-sa' }, function(tracks) {
             for(track in tracks) {
               console.log(tracks[track]);
+              var image = document.createElement("img")
+              image.setAttribute("src", tracks[track].artwork_url)
+              // image = catalog.firstChild
+              catalog.appendChild(image[0])
             }
           }
         );
