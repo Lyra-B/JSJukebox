@@ -55,13 +55,17 @@
               catalog.appendChild(div);
               link.setAttribute("class", "show-info")
               link.setAttribute("href", "#show")
-              link.onclick = function showInfo(){
-                var popup = document.createElement("div")
-                popup.setAttribute("id", "popup")
+              link.onclick = function (){
+                var description = document.createElement("p");
+                description.innerText = tracks[track].description
+                var popup = document.createElement("div");
+                popup.setAttribute("class", "popup")
                 var modal = document.createElement("div")
-                modal.setAttribute("id", "modal")
+                modal.setAttribute("class", "modal")
                 popup.appendChild(modal)
+                modal.appendChild(description)
                 catalog.appendChild(popup)
+
                 // modal.setAttribute("style" "content:'tracks[track].description'")
               }
             }

@@ -10,7 +10,7 @@ img{
   height: 200px;
 }
 
-#popup{
+.popup{
   position:absolute;
   top:0;
   width:100px;
@@ -18,7 +18,7 @@ img{
   height:100px;
   display:block;
 }
-#popup #modal {
+.popup .modal {
   margin-left:auto;
   margin-right:auto;
   width:30em;
@@ -32,12 +32,9 @@ img{
 
 .show-info {
   padding:1em;
-  /*border:1px solid #333;*/
-  /*background:#CCC;*/
   text-align: left;
   display:inline-block;
   width: 6em;
-  /*color:white;*/
   text-decoration:none;
   cursor:pointer;
   margin-left:auto;
