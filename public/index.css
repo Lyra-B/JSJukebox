@@ -1,0 +1,45 @@
+.track-info {
+  /*overflow: hidden;*/
+  /*text-align:left;*/
+  width: 100px;
+  height: 100px;
+}
+
+img{
+  width: 200px;
+  height: 200px;
+}
+
+#popup{
+  position:absolute;
+  top:0;
+  width:100px;
+  background: rgba(0, 0, 0, 0.5);
+  height:100px;
+  display:block;
+}
+#popup #modal {
+  margin-left:auto;
+  margin-right:auto;
+  width:30em;
+  margin-top: 2em;
+  background: #FFF;
+  border: 2px solid #B4b4b4;
+  border-radius: 1em;
+  box-shadow: 10px 6px 0px #CCC;
+  padding:2em;
+}
+
+.show-info {
+  padding:1em;
+  /*border:1px solid #333;*/
+  /*background:#CCC;*/
+  text-align: left;
+  display:inline-block;
+  width: 6em;
+  /*color:white;*/
+  text-decoration:none;
+  cursor:pointer;
+  margin-left:auto;
+  margin-right:auto;
+}

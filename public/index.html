@@ -4,6 +4,8 @@
     <meta http-equiv="X-UA-Compatible" content="chrome=1" />
     <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
     <title>My Amazing SoundCloud Catalog</title>
+    <link href="reset.css" type="text/css" rel="stylesheet">
+    <link href="index.css" type="text/css" rel="stylesheet">
     <script src="http://connect.soundcloud.com/sdk.js"></script>
   </head>
 
@@ -17,6 +19,14 @@
     <div id="catalog">
     </div>
 
+    <!-- <a class="modal-show" href="#modal-show">More Information</a> -->
+
+   <!--  <div id ="popup">
+      <div id="modal">
+        <p></p>
+      </div>
+    </div>
+ -->
     <script>
       SC.initialize({
         client_id: '4f0f49d2e8de7886ae21480b0b2a9487'
@@ -29,17 +39,39 @@
         searchTerm = searchTerm.replace(" ", "+");
 
         // Search soundcloud for artists
-        SC.get('/tracks', { q: searchTerm, license: 'cc-by-sa' }, function(tracks) {
+        SC.get('/tracks', { q: searchTerm, license: 'cc-by-sa' }, function(tracks){
             for(track in tracks) {
               console.log(tracks[track]);
-              var image = document.createElement("img")
-              image.setAttribute("src", tracks[track].artwork_url)
-              // image = catalog.firstChild
-              catalog.appendChild(image[0])
+              var catalog = document.getElementById("catalog");
+              var image = document.createElement("img");
+              var link = document.createElement("a");
+              var div = document.createElement("div");
+              div.setAttribute("id", "track-info")
+              image.setAttribute("src", tracks[track].artwork_url);
+              //var image = images.childNodes[0];
+              //Why this doesn't work?
+              link.appendChild(image);
+              div.appendChild(link);
+              catalog.appendChild(div);
+              link.setAttribute("class", "show-info")
+              link.setAttribute("href", "#show")
+              link.onclick = function showInfo(){
+                var popup = document.createElement("div")
+                popup.setAttribute("id", "popup")
+                var modal = document.createElement("div")
+                modal.setAttribute("id", "modal")
+                popup.appendChild(modal)
+                catalog.appendChild(popup)
+                // modal.setAttribute("style" "content:'tracks[track].description'")
+              }
             }
           }
         );
       };
+
+      // function showInfo() {
+
+      // }
     </script>
   </body>
 
