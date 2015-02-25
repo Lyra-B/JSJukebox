@@ -19,14 +19,6 @@
     <div id="catalog">
     </div>
 
-    <!-- <a class="modal-show" href="#modal-show">More Information</a> -->
-
-   <!--  <div id ="popup">
-      <div id="modal">
-        <p></p>
-      </div>
-    </div>
- -->
     <script>
       SC.initialize({
         client_id: '4f0f49d2e8de7886ae21480b0b2a9487'
@@ -46,27 +38,28 @@
               var image = document.createElement("img");
               var link = document.createElement("a");
               var div = document.createElement("div");
-              div.setAttribute("id", "track-info")
-              image.setAttribute("src", tracks[track].artwork_url);
-              //var image = images.childNodes[0];
-              //Why this doesn't work?
+              div.setAttribute("class", "track-info");
               link.appendChild(image);
               div.appendChild(link);
+              //div.setAttribute("style", "display:inline-block")
               catalog.appendChild(div);
-              link.setAttribute("class", "show-info")
-              link.setAttribute("href", "#show")
+              link.setAttribute("class", "show-info");
+              link.setAttribute("href", "#show");
+              image.setAttribute("src", tracks[track].artwork_url);
+              link.setAttribute("id", tracks[track].description)
+              //link.setAttribute("id", tracks[track].id);
+              //var image = images.childNodes[0];
+              //Why this doesn't work?
               link.onclick = function (){
                 var description = document.createElement("p");
-                description.innerText = tracks[track].description
+                description.innerText = link.id
                 var popup = document.createElement("div");
-                popup.setAttribute("class", "popup")
-                var modal = document.createElement("div")
-                modal.setAttribute("class", "modal")
-                popup.appendChild(modal)
-                modal.appendChild(description)
-                catalog.appendChild(popup)
-
-                // modal.setAttribute("style" "content:'tracks[track].description'")
+                popup.setAttribute("class", "popup");
+                var modal = document.createElement("div");
+                modal.setAttribute("class", "modal");
+                popup.appendChild(modal);
+                modal.appendChild(description);
+                catalog.appendChild(popup);
               }
             }
           }

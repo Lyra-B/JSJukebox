@@ -1,8 +1,8 @@
 .track-info {
-  /*overflow: hidden;*/
-  /*text-align:left;*/
-  width: 100px;
-  height: 100px;
+  display:inline-block;
+  width: 200px;
+  height: 200px;
+  margin:2px;
 }
 
 img{
@@ -21,7 +21,8 @@ img{
 .popup .modal {
   margin-left:auto;
   margin-right:auto;
-  width:30em;
+  min-width:15em;
+  min-height:5em;
   margin-top: 2em;
   background: #FFF;
   border: 2px solid #B4b4b4;
