@@ -43,6 +43,7 @@
 
     <input type="text" id="search" onchange="doSearch()" />
 
+    <button id="clear">Clear</button>
 
     <div id="catalog">
     </div>
@@ -81,16 +82,23 @@
               //http://www.mennovanslooten.nl/blog/post/62
               link.onclick = (function(){
                 return function() {
-                var description = document.createElement("p");
-                description.innerText = this.id
-                var popup = document.createElement("div");
-                popup.setAttribute("class", "popup");
-                var modal = document.createElement("div");
-                modal.setAttribute("class", "modal");
-                popup.appendChild(modal);
-                modal.appendChild(description);
-                catalog.appendChild(popup);
-                  // alert(this.id);
+                  var description = document.createElement("p");
+                  description.innerText = this.id
+                  var popup = document.createElement("div");
+                  popup.setAttribute("class", "popup");
+                  var modal = document.createElement("div");
+                  modal.setAttribute("class", "modal");
+                  popup.appendChild(modal);
+                  modal.appendChild(description);
+                  catalog.appendChild(popup);
+                  var button = document.createElement("button")
+                  button.innerText = "Hide"
+                  // button.setAttribute("content", "'Hide'")
+                  modal.appendChild(button);
+
+                  button.onclick = (function(){
+                    catalog.removeChild(popup);
+                  });
                 }
               })(track);
             }
