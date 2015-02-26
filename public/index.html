@@ -18,9 +18,6 @@
 
     <button id="clear">Clear</button>
 
-  <!--  <div id="catalog">
-    </div> -->
-
     <script>
       SC.initialize({
         client_id: '4f0f49d2e8de7886ae21480b0b2a9487'
@@ -35,7 +32,7 @@
         // Search soundcloud for artists
         SC.get('/tracks', { q: searchTerm, license: 'cc-by-sa' }, function(tracks){
             for(track in tracks) {
-              console.log(tracks[track]);
+              // console.log(tracks[track]);
               var catalog = document.createElement("div")
               catalog.setAttribute("id", "catalog")
               main.appendChild(catalog)
@@ -92,14 +89,7 @@
             }
           }
         );
-        // SC.Widget.SEEK
       };
-
-
-
-      // function showInfo() {
-
-      // }
     </script>
   </body>
 
